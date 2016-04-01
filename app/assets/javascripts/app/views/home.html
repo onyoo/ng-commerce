@@ -1,9 +1,18 @@
 <div id='home_wrapper'>
   {{ home.message }}
-  <ul ng-repeat='product in home.allProducts'>
+  <p>Search
+      <input
+      type="text"
+      ng-model='home.search'>
+  </p>
+
+  this sis search: {{ home.search }}
+  <ul ng-repeat='product in home.allProducts | filter:home.search'>
     <li>
       <p class='product'>{{product.name}}</p>
-      Price: {{product.price}}
+      <p>Price: {{product.price}}</p>
+      <p>Only: {{product.inventory}} left!</p>
     </li>
   </ul>
+
 </div>
