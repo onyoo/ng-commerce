@@ -4,8 +4,6 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.integer :price
       t.integer :inventory
-      t.integer :cost
-      t.references :supplier, index: true, foreign_key: true
 
       t.timestamps null: false
     end

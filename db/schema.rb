@@ -61,13 +61,9 @@ ActiveRecord::Schema.define(version: 20160401102641) do
     t.string   "name"
     t.integer  "price"
     t.integer  "inventory"
-    t.integer  "cost"
-    t.integer  "supplier_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id"
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "product_id"
@@ -82,15 +78,6 @@ ActiveRecord::Schema.define(version: 20160401102641) do
   add_index "ratings", ["product_id"], name: "index_ratings_on_product_id"
   add_index "ratings", ["rating_id"], name: "index_ratings_on_rating_id"
   add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
-
-  create_table "suppliers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "email"
-    t.integer  "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

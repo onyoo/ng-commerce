@@ -5,7 +5,12 @@ angular
       .state('home', {
         url: '/',
         templateUrl: 'app/views/home.html',
-        controller: 'Home as home'
+        controller: 'Home as home',
+        resolve: {
+          productIndex: function (ProductService) {
+            return ProductService.getProductsIndex();
+          }
+        }
       });
     $urlRouterProvider.otherwise('/');
   });

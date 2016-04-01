@@ -1,3 +1,9 @@
 <div id='home_wrapper'>
   {{ home.message }}
+  <ul ng-repeat='product in home.allProducts'>
+    <li>
+      <p class='product'>{{product.name}}</p>
+      Price: {{product.price}}
+    </li>
+  </ul>
 </div>

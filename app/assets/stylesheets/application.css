@@ -30,3 +30,8 @@
   width: 100%;
   height: 6em;
 }
+
+ul{
+  list-style-type: none;
+  background-color: lightgrey;
+}
