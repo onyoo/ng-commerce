@@ -9,6 +9,9 @@ angular
         resolve: {
           productIndex: function (ProductService) {
             return ProductService.getProductsIndex();
+          },
+          categoryTabs: function (CategoryService) {
+            return CategoryService.getCategories();
           }
         }
       });
