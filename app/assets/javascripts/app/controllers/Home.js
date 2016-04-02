@@ -1,13 +1,15 @@
-function Home(productIndex, categoryTabs, SessionService, $cookies) {
+function Home(productIndex, categoryTabs, SessionService, $cookies, $scope) {
   var ctrl = this;
 
   ctrl.search = '';
-  ctrl.message = 'Welcome to the home page!';
+  ctrl.user = $cookies.get('user_name')
+
+  ctrl.message = 'Welcome ' + ctrl.user;
   ctrl.allProducts = productIndex.data;
   ctrl.categories = categoryTabs.data;
   ctrl.email = '';
   ctrl.password = '';
-  ctrl.user = $cookies.get('user_name')
+
 
   ctrl.submit_login_form = function() {
     var credentials = {
