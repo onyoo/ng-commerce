@@ -1,6 +1,14 @@
 <div id='main_header'>
   <h2>The Best products in the world. Ever.</h2>
 
+  <div id='login_div' ng-click='home.login_form = true' ng-show='!home.user'>
+    Login
+  </div>
+
+  <div id='logout_div' ng-click='home.logout()' ng-show='home.user'>
+    Logout
+  </div>
+Hello {{home.user}}
   <div id="category_div">
     <span ng-repeat='category in home.categories'>
       <a class='cat_tab' href='' ui-sref='category({name: category.name.split(" ").join("-")})'>{{category.name}}</a>
@@ -9,7 +17,26 @@
 
 </div>
 
+
 <div id='home_wrapper'>
+
+  <div id='login_form' ng-show='home.login_form'>
+    form #1:
+    <form ng-submit="home.submit_login_form(); home.login_form=false;">
+      <table>
+        <tr>
+          <td>Email: </td>
+          <td><input type="text" ng-model='home.email' /></td>
+        </tr><tr>
+          <td>Password: </td>
+          <td><input type="password" ng-model='home.password' /></td>
+        </tr>
+      </table>
+      <input type="submit" value='Submit'>
+    </form>
+
+  </div>
+
   {{ home.message }}
   <p>Search
       <input
@@ -17,7 +44,6 @@
       ng-model='home.search'>
   </p>
 
-  this sis search: {{ home.search }}
   <ul ng-repeat='product in home.allProducts | filter:home.search'>
     <li>
       <p class='product'>{{product.name}}</p>

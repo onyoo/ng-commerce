@@ -48,6 +48,26 @@
   z-index: 10;
 }
 
+#login_div, #logout_div {
+  border: solid 1px red;
+  text-align: center;
+  width: 5em;
+  position: fixed;
+  right: 0em;
+  top: 1em;
+  z-index: 20;
+}
+
+#login_form {
+  background-color: white;
+  border: solid 2px black;
+  z-index: 15;
+}
+
+#welcome_user {
+  z-index: 100;
+}
+
 ul{
   list-style-type: none;
   background-color: lightgrey;
