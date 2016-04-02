@@ -14,6 +14,16 @@ angular
             return CategoryService.getCategories();
           }
         }
+      })
+      .state('category', {
+        url: '/:name',
+        templateUrl: 'app/views/category.html',
+        controller: 'Category as category',
+        resolve: {
+          categoryShow: function(CategoryService, $stateParams) {
+            return CategoryService.showCategory($stateParams.name);
+          }
+        }
       });
     $urlRouterProvider.otherwise('/');
   });
