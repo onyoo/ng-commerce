@@ -39,23 +39,20 @@
   position: relative;
   display: inline-block;
   bottom: 0px;
-  right: 0px;
+  right: -1em;
 }
 
 #category_div {
-  position: fixed;
   top: 4.8em;
-  z-index: 10;
+  /*z-index: 10;*/
 }
 
 #login_div, #logout_div {
   border: solid 1px red;
   text-align: center;
   width: 5em;
-  position: fixed;
   right: 0em;
   top: 1em;
-  z-index: 20;
 }
 
 #login_form {
@@ -64,8 +61,14 @@
   z-index: 15;
 }
 
-#welcome_user {
-  z-index: 100;
+.header_content {
+  position: fixed;
+  z-index: 150;
+}
+
+#close_form {
+  position: absolute;
+  right: 2em;
 }
 
 ul{
