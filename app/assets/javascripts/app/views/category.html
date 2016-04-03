@@ -1,3 +1,15 @@
 <h2 class='header_content'>this is the category view for: {{ category.category.name }}</h2>
 <br><br>
-{{ category }}
+
+
+<!-- header content-->
+<!-- header content-->
+
+
+<div id='home_wrapper'>
+  <div ng-repeat='product in category.products'>
+    <p><strong>{{ product.name }}</strong></p>
+    <p>Price: {{ product.price }}</p>
+    Only {{ product.inventory }} Left!
+  </div>
+</div>

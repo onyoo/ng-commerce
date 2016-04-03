@@ -22,6 +22,9 @@ angular
         resolve: {
           categoryShow: function(CategoryService, $stateParams) {
             return CategoryService.showCategory($stateParams.name);
+          },
+          categoryProducts: function(ProductService, $stateParams) {
+            return ProductService.categoryProducts($stateParams.name);
           }
         }
       });

@@ -1,5 +1,6 @@
-function Category(categoryShow) {
+function Category(categoryShow, categoryProducts) {
   this.category = categoryShow.data;
+  this.products = categoryProducts.data;
 };
 
 angular
