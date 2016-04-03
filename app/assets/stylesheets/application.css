@@ -39,12 +39,12 @@
   position: relative;
   display: inline-block;
   bottom: 0px;
-  right: -1em;
+  /*right: -1em;*/
 }
 
 #category_div {
-  top: 4.8em;
-  /*z-index: 10;*/
+  top: 4.75em;
+  margin-left: 1em;
 }
 
 #login_div, #logout_div {

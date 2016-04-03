@@ -1,7 +1,5 @@
 <h2> {{ category.category.name }} </h2>
 
-
-<!-- <div id='home_wrapper'> -->
 <p>Search
     <input
     type="text"
@@ -9,8 +7,9 @@
 </p>
 
   <div ng-repeat='product in category.products | filter:search'>
-    <p><strong>{{ product.name }}</strong></p>
-    <p>Price: {{ product.price }}</p>
-    Only {{ product.inventory }} Left!
+    <ul>
+      <p class='product'><strong>{{ product.name }}</strong></p>
+      <p>Price: {{ product.price }}</p>
+      Only {{ product.inventory }} Left!
+    </ul>
   </div>
-<!-- </div> -->

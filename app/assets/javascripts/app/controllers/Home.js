@@ -12,7 +12,6 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
 
 
   ctrl.submit_login_form = function() {
-    debugger;
     var credentials = {
       'email': ctrl.email,
       'password': ctrl.password

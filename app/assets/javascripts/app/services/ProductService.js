@@ -7,6 +7,10 @@ function ProductService($http) {
     return $http.get('/products/' + name);
   };
 
+  this.getProduct = function(id) {
+    return $http.get('/products/' + id)
+  };
+
 };
 
 angular

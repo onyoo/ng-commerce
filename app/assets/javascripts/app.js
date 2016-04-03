@@ -42,6 +42,16 @@ angular
             return ProductService.categoryProducts($stateParams.name);
           }
         }
+      })
+      .state('home.product', {
+        url: 'product/:id',
+        templateUrl: 'app/views/product.html',
+        controller: 'Product as product',
+        resolve: {
+          productShow: function(ProductService, $stateParams) {
+            return ProductService.getProduct($stateParams.id)
+          }
+        }
       });
     $urlRouterProvider.otherwise('/index');
   });
