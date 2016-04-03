@@ -4,7 +4,7 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
   ctrl.search = '';
   ctrl.user = $cookies.get('user_name')
 
-  ctrl.message = 'Welcome ' + (ctrl.user || 'guest');
+  ctrl.message = 'Welcome ' + (ctrl.user || 'Guest');
   ctrl.allProducts = productIndex.data;
   ctrl.categories = categoryTabs.data;
   ctrl.email = '';

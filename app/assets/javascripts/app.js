@@ -50,6 +50,9 @@ angular
         resolve: {
           productShow: function(ProductService, $stateParams) {
             return ProductService.getProduct($stateParams.id)
+          },
+          productRatings: function(RatingService, $stateParams) {
+            return RatingService.getRatings($stateParams.id)
           }
         }
       });

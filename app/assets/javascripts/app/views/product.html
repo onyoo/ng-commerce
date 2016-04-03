@@ -4,4 +4,9 @@ Price: {{product.product.price}}
 <br>
 Inventory: {{product.product.inventory}}
 <br>
-{{product.product}}
+<div ng-repeat='rating in product.ratings'>
+  <div class='rating_div'>
+    <p>Rating: {{rating.score}}</p>
+    <p>{{rating.body}}</p>
+  </div>
+</div>

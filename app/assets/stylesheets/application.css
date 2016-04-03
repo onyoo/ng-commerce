@@ -75,6 +75,11 @@
   background : red;
 }
 
+.rating_div {
+  background-color: lightblue;
+  padding: 1em;
+}
+
 ul{
   list-style-type: none;
   background-color: lightgrey;

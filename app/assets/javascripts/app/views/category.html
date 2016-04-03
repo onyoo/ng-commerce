@@ -8,7 +8,7 @@
 
   <div ng-repeat='product in category.products | filter:search'>
     <ul>
-      <p class='product'><strong>{{ product.name }}</strong></p>
+      <a class='product' ui-sref='home.product({id: product.id})'><strong>{{ product.name }}</strong></a>
       <p>Price: {{ product.price }}</p>
       Only {{ product.inventory }} Left!
     </ul>
