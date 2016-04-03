@@ -24,6 +24,14 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
   ctrl.logout = function() {
     return SessionService.logout()
   };
+
+  ctrl.setActive = function(category) {
+    ctrl.activeMenu = category;
+  };
+
+  ctrl.clearActive = function() {
+    ctrl.activeMenu = '';
+  }
 }
 
 angular

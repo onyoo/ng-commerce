@@ -11,8 +11,12 @@ message: {{ home.message }}
   </div>
 
   <div id="category_div" class='header_content'>
+    <a class='cat_tab' href='' ng-click='home.clearActive()' ui-sref='home.index'>Home</a>
+
     <span ng-repeat='category in home.categories'>
-      <a class='cat_tab' href='' ui-sref='home.category({name: category.name.split(" ").join("-")})'>{{category.name}}</a>
+      <span class="account-heading" ng-class="{active : home.activeMenu === category}">
+        <a class='cat_tab' href='' ng-click="home.setActive(category)" ui-sref='home.category({name: category.name.split(" ").join("-")})'>{{category.name}}</a>
+      </span>
     </span>
   </div>
 
@@ -21,57 +25,8 @@ message: {{ home.message }}
 
 
 <div id='home_wrapper'>
+
 <ui-view></ui-view>
-  <!-- <div id='login_form' ng-show='home.show_login_form'>
-    <form id='login_form' ng-show='home.show_login_form' ng-submit="home.submit_login_form(); home.show_login_form=false;" name='login_form'>
-      <span id='close_form' ng-click='home.show_login_form=false' >close</span>
-        Email:
-        <p><input type='email'
-                name='email'
-                required='required'
-                ng-model='home.email' /></p>
 
-        <div ng-if='login_form.email.$touched'>
-          <div ng-if='login_form.email.$error.required'>
-            Email is required.
-          </div>
-          <div ng-if='login_form.email.$error.email'>
-            Email must be valid.
-          </div>
-        </div>
-
-        Password:
-          <p><input type='password'
-                  name='password'
-                  required='required'
-                  minlength='8'
-                  ng-model='home.password' /></p>
-        <div ng-if='login_form.password.$touched'>
-          <div ng-if='login_form.password.$error.required'>
-            Password is required.
-          </div>
-          <div ng-if='login_form.password.$error.minlength'>
-            Password must be longer than 8 characters.
-          </div>
-        </div>
-      <input type="submit" value='Submit'>
-    </form>
-  </div> -->
-
-
-
-  <!-- <p>Search
-      <input
-      type="text"
-      ng-model='home.search'>
-  </p>
-
-  <ul ng-repeat='product in home.allProducts | filter:home.search'>
-    <li>
-      <p class='product'>{{product.name}}</p>
-      <p>Price: {{product.price}}</p>
-      <p>Only: {{product.inventory}} left!</p>
-    </li>
-  </ul> -->
 
 </div>
