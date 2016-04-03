@@ -15,8 +15,23 @@ angular
           }
         }
       })
-      .state('category', {
-        url: '/:name',
+      .state('home.index', {
+        url: 'index',
+        templateUrl: 'app/views/index.html',
+        controller: 'Home as home',
+        resolve: {
+          productIndex: function (ProductService) {
+            return ProductService.getProductsIndex();
+          }
+        }
+      })
+      .state('home.login', {
+        url: 'login',
+        templateUrl: 'app/views/login_form.html',
+        controller: 'Home as home'
+      })
+      .state('home.category', {
+        url: 'category/:name',
         templateUrl: 'app/views/category.html',
         controller: 'Category as category',
         resolve: {
@@ -28,5 +43,5 @@ angular
           }
         }
       });
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/index');
   });

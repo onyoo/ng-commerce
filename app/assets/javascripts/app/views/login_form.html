@@ -1,0 +1,35 @@
+<div id='login_form' > <!--ng-show='home.show_login_form'-->
+  <form id='login_form' ng-submit="home.submit_login_form(); home.show_login_form=false;" name='login_form'>
+      Email:
+      <p><input type='email'
+              name='email'
+              required='required'
+              ng-model='home.email' /></p>
+
+      <div ng-if='login_form.email.$touched'>
+        <div ng-if='login_form.email.$error.required'>
+          Email is required.
+        </div>
+        <div ng-if='login_form.email.$error.email'>
+          Email must be valid.
+        </div>
+      </div>
+
+      Password:
+        <p><input type='password'
+                name='password'
+                required='required'
+                minlength='8'
+                ng-model='home.password' /></p>
+      <div ng-if='login_form.password.$touched'>
+        <div ng-if='login_form.password.$error.required'>
+          Password is required.
+        </div>
+        <div ng-if='login_form.password.$error.minlength'>
+          Password must be longer than 8 characters.
+        </div>
+      </div>
+    <input type="submit" value='Submit' >
+  </form>
+</div>
+<!-- ui-sref='home.index' -->

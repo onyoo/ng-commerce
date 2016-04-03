@@ -58,7 +58,7 @@
 #login_form {
   background-color: white;
   border: solid 2px black;
-  z-index: 15;
+  z-index: 150;
 }
 
 .header_content {

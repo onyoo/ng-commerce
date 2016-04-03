@@ -1,7 +1,8 @@
 <div class='header_content'>
 <h3 >The Best products in the world. Ever.</h3>
+message: {{ home.message }}
 </div>
-  <div id='login_div' class='header_content' ng-click='home.show_login_form = true' ng-show='!home.user'>
+  <div id='login_div' class='header_content' ui-sref='home.login' ng-show='!home.user'> <!--ng-click='home.show_login_form = true'-->
     Login
   </div>
 
@@ -11,7 +12,7 @@
 
   <div id="category_div" class='header_content'>
     <span ng-repeat='category in home.categories'>
-      <a class='cat_tab' href='' ui-sref='category({name: category.name.split(" ").join("-")})'>{{category.name}}</a>
+      <a class='cat_tab' href='' ui-sref='home.category({name: category.name.split(" ").join("-")})'>{{category.name}}</a>
     </span>
   </div>
 
@@ -20,10 +21,10 @@
 
 
 <div id='home_wrapper'>
-
-  <div id='login_form' ng-show='home.show_login_form'>
-    <span id='close_form' ng-click='home.show_login_form=false' >close</span>
-    <form ng-submit="home.submit_login_form(); home.show_login_form=false;" name='login_form'>
+<ui-view></ui-view>
+  <!-- <div id='login_form' ng-show='home.show_login_form'>
+    <form id='login_form' ng-show='home.show_login_form' ng-submit="home.submit_login_form(); home.show_login_form=false;" name='login_form'>
+      <span id='close_form' ng-click='home.show_login_form=false' >close</span>
         Email:
         <p><input type='email'
                 name='email'
@@ -55,15 +56,11 @@
         </div>
       <input type="submit" value='Submit'>
     </form>
-  </div>
+  </div> -->
 
 
 
-  <div ng-show='home.user'>
-    {{ home.message }}
-  </div>
-
-  <p>Search
+  <!-- <p>Search
       <input
       type="text"
       ng-model='home.search'>
@@ -75,6 +72,6 @@
       <p>Price: {{product.price}}</p>
       <p>Only: {{product.inventory}} left!</p>
     </li>
-  </ul>
+  </ul> -->
 
 </div>
