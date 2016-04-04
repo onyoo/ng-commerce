@@ -55,6 +55,14 @@
   top: 1em;
 }
 
+#cart_div {
+  border: solid 1px red;
+  text-align: center;
+  width: 5em;
+  right: 0em;
+  top: 2.5em;
+}
+
 #login_form {
   background-color: white;
   border: solid 2px black;

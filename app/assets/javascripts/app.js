@@ -30,6 +30,20 @@ angular
         templateUrl: 'app/views/login_form.html',
         controller: 'Home as home'
       })
+      .state('home.cart', {
+        url: 'cart',
+        templateUrl: 'app/views/carts.html',
+        controller: 'Cart as cart',
+        resolve: {
+          cartIndex: function(CartService) {
+            return CartService.getCarts();
+          }
+          //this should be put in a component to be fired on each item.
+          // cartContents: function(CartService) {
+          //   return CartService.getContents();
+          // }
+        }
+      })
       .state('home.category', {
         url: 'category/:name',
         templateUrl: 'app/views/category.html',

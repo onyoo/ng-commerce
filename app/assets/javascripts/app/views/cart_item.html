@@ -1,0 +1,8 @@
+
+<div ng-if='cartItem.data'>
+  <div ng-repeat='product in cartItem.data'>
+    <p>{{product.name}}</p>
+    <p>${{product.price}}</p>
+    Order quanitiy: <input type="number" value='1'>
+  </div>
+</div>

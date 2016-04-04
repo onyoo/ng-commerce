@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :ratings, only: [:show]
+  resources :carts, only: [:show]
 
   post '/login', to: 'sessions#create', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
