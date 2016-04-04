@@ -8,6 +8,10 @@ function CartService($http, $cookies) {
     return $http.get('/carts/' + id)
   }
 
+  this.addToCart = function(id) {
+    $http.patch('/carts/' + $cookies.get('user_name'), {product_id: id})
+  }
+
 };
 
 angular

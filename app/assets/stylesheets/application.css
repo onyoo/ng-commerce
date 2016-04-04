@@ -88,6 +88,11 @@
   padding: 1em;
 }
 
+#add_cart {
+  float:right;
+  margin: 2em;
+}
+
 ul{
   list-style-type: none;
   background-color: lightgrey;

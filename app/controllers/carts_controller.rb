@@ -9,4 +9,11 @@ class CartsController < ApplicationController
     end
   end
 
+  def update
+    user = User.find_by(name: params[:id])
+    binding.pry
+    user.carts.last.products << Product.find(params[:product_id])
+    render nothing: true, status: 202
+  end
+
 end
