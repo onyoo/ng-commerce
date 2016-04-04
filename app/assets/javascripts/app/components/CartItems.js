@@ -6,11 +6,27 @@ var CartItem = {
   controller: function(CartService) {
     var ctrl = this;
 
+    ctrl.cartTotal = [].map(function(a) {return a.quantity});
+    ctrl.getTotal = function(){
+        var total = 0;
+        for(var i = 0; i < ctrl.data.length; i++){
+            var product = ctrl.data[i];
+            total += (product.price * product.quantity);
+        }
+        return total;
+    }
+
+
     CartService
       .getContents(this.id)
       .then(function(resp) {
         ctrl.data = resp.data;
+        for( var i = 0; i < ctrl.data.length; i++){
+          // ctrl.total += ctrl.data[i].price;
+          ctrl.cartTotal.push(ctrl.data[i].price);
+        }
       });
+
   },
   controllerAs: 'cartItem'
 };

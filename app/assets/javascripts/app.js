@@ -38,10 +38,6 @@ angular
           cartIndex: function(CartService) {
             return CartService.getCarts();
           }
-          //this should be put in a component to be fired on each item.
-          // cartContents: function(CartService) {
-          //   return CartService.getContents();
-          // }
         }
       })
       .state('home.category', {
