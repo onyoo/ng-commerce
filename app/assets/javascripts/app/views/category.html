@@ -6,10 +6,7 @@
     ng-model='search'>
 </p>
 
-  <div ng-repeat='product in category.products | filter:search'>
-    <ul>
-      <a class='product' ui-sref='home.product({id: product.id})'><strong>{{ product.name }}</strong></a>
-      <p>Price: {{ product.price }}</p>
-      Only {{ product.inventory }} Left!
-    </ul>
-  </div>
+
+<ul ng-repeat='product in category.products | filter:search'>
+  <product-item product='product'></product-item>
+</ul>

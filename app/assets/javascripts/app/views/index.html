@@ -5,9 +5,5 @@
 </p>
 
 <ul ng-repeat='product in home.allProducts | filter:home.search'>
-  <li>
-    <a class='product' ui-sref='home.product({id: product.id})'>{{product.name}}</a>
-    <p>Price: {{product.price}}</p>
-    <p>Only: {{product.inventory}} left!</p>
-  </li>
+  <product-item product='product'></product-item>
 </ul>
