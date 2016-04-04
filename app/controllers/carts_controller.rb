@@ -11,8 +11,11 @@ class CartsController < ApplicationController
 
   def update
     user = User.find_by(name: params[:id])
-    binding.pry
-    user.carts.last.products << Product.find(params[:product_id])
+    product = Product.find(params[:product_id])
+    if user.carts.last.products << product
+      product.inventory -= 1
+      product.save
+    end
     render nothing: true, status: 202
   end
 

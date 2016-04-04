@@ -1,6 +1,7 @@
 function CartService($http, $cookies) {
 
   this.getCarts = function() {
+    //need to find user by id not name
     return $http.get('/carts/' + $cookies.get('user_name'));
   };
 
@@ -9,7 +10,8 @@ function CartService($http, $cookies) {
   }
 
   this.addToCart = function(id) {
-    $http.patch('/carts/' + $cookies.get('user_name'), {product_id: id})
+    //need to find user by id not name
+    $http.patch('/carts/' + $cookies.get('user_name'), {product_id: id});
   }
 
 };

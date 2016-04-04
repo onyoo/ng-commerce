@@ -13,6 +13,7 @@ var ProductItem = {
   controller: function(CartService) {
     this.addToCart = function(id) {
       CartService.addToCart(id);
+      this.product.inventory -= 1;
     };
   },
   controllerAs: 'product'
