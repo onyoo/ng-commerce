@@ -18,6 +18,10 @@ function CartService($http, $cookies) {
     return $http.patch('/carts/' + $cookies.get('user_name'), {'cart_id': cart_id, 'product_id': product_id, 'quantity': quantity});
   };
 
+  this.checkout = function(id) {
+    return $http.patch('/checkout/' + id);
+  }
+
 };
 
 angular

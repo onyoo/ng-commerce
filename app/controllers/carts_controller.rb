@@ -26,4 +26,13 @@ class CartsController < ApplicationController
       render nothing: true, status: 402;
     end
   end
+
+  def checkout
+    total = 0
+    cart = Cart.find(params[:id])
+    cart.products.each {|i| total += i.price}
+    # bill user for total, with itemized receipt
+    cart.destroy
+    render nothing: true, status: 200
+  end
 end

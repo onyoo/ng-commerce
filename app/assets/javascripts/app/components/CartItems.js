@@ -29,7 +29,6 @@ var CartItem = {
       .then(function(resp) {
         ctrl.data = resp.data;
         for( var i = 0; i < ctrl.data.length; i++){
-          // ctrl.total += ctrl.data[i].price;
           ctrl.cartTotal.push(ctrl.data[i].price);
         };
       });

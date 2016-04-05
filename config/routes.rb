@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
+
+  patch '/checkout/:id', to: 'carts#checkout', as: 'checkout'
 end

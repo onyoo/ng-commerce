@@ -1,8 +1,9 @@
 <h3>My Carts</h3>
 
-<div ng-repeat='cart in cart.carts'>
+<div ng-repeat='c in cart.carts'>
   <ul>
     <strong>Cart {{$index + 1}}</strong>
-    <cart-item id='cart.id'></cart-item>
+    <cart-item id='c.id'></cart-item>
+    <button ng-click='cart.checkout(c.id)'>Checkout</button>
   </ul>
 </div>
