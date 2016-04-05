@@ -9,9 +9,9 @@
     <button ng-click='cart.checkout(c.id)'>Checkout</button>
     <button ng-click='cart.deleteCart(c.id)'>Delete Cart</button>
 
-    <div id='checout_message' ng-show='cOMessage'>
-      Stellar Purchace! You will recieve an email confirmation shortly.
-    </div>
 
   </ul>
+  <div id='checout_message' ng-show='cart.cOMessage'>
+    Stellar Purchace! You will recieve an email confirmation shortly.
+  </div>
 </div>
