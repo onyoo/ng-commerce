@@ -1,20 +1,20 @@
 
 <div ng-if='cartItem.data' ng-init='showQuantForm = false'>
-  <!-- <form action=""> -->
+
     <div ng-repeat='product in cartItem.data | cartItemsFilter' ng-init='product.quantity = 1'>
       <p>{{product.name}}</p>
       <p>${{product.price}}</p>
       <p> Order Quantity: {{ product.quantity }}</p>
       <button ng-click='showQuantForm = true' ng-show='!showQuantForm'>Change Quantity</button>
         <div ng-show='showQuantForm'>
-          <form action="" ng-submit='cartItem.changeQuant(product.id)'>
-            Quantity: <input type="number" ng-model='cartItem.quantity'>
-            <input type="submit" value='Submit'>
+          <form action="" ng-submit='cartItem.changeQuant(product.id); showQuantForm = false; cartItem.data.$apply'>
+            How many MORE? <input type="number" ng-model='cartItem.quantity'>
+            <input type="submit" value='Submit' ng-click=''>
           </form>
         </div>
       <br><br>
   </div>
-<!-- </form> -->
+
   <br>
 
   <strong>Total: {{ cartItem.getTotal() }}</strong>

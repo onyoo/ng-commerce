@@ -13,4 +13,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def update
+    product = Product.find(params[:id])
+    product.ratings.create(body: params[:review], score: params[:rating])
+    render json: product.ratings.last
+  end
+
 end

@@ -1,12 +1,25 @@
-Name: {{product.product.name}}
-<br>
-Price: {{product.product.price}}
-<br>
-Inventory: {{product.product.inventory}}
-<br>
-<div ng-repeat='rating in product.ratings'>
-  <div class='rating_div'>
-    <p>Rating: {{rating.score}}</p>
-    <p>{{rating.body}}</p>
+<div class="productWrapper" ng-init='leaveReview = false'>
+  Name: {{product.product.name}}
+  <br>
+  Price: {{product.product.price}}
+  <br>
+  Inventory: {{product.product.inventory}}
+  <br>
+
+  <button ng-click='leaveReview = true' ng-show='!leaveReview'>Leave A Review!</button>
+  <form action="" ng-show='leaveReview' ng-submit='product.submitReview(product.product.id, review, rating); leaveReview = false; review = ""; rating=5 '>
+    <p>Review:</p>
+    <textarea class='review_textarea' ng-model='review'></textarea>
+    <p>Rating: {{rating}}</p>
+    <input class='rating_slider' ng-model='rating' type='range' min='0' max='10' step='1' value='5' ng-model='rating' />
+    <input type="submit" value='Submit'>
+  </form>
+
+
+  <div ng-repeat='rating in product.ratings'>
+    <div class='rating_div'>
+      <p>Rating: {{rating.score}}</p>
+      <p>{{rating.body}}</p>
+    </div>
   </div>
 </div>

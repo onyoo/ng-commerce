@@ -11,6 +11,10 @@ function ProductService($http) {
     return $http.get('/products/' + id);
   };
 
+  this.submitReview = function(id, review, rating) {
+    return $http.patch('/products/' + id, {'review': review, 'rating': rating});
+  };
+
 };
 
 angular

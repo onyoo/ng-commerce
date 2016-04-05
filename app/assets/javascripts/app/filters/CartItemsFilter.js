@@ -19,7 +19,6 @@ function CartItemsFilter() {
           }
         }
 
-
         last = distinct[index]
         last['quantity']++
       }
