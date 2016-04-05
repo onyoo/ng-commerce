@@ -34,4 +34,9 @@ class CartsController < ApplicationController
     cart.destroy
     render nothing: true, status: 200
   end
+
+  def destroy
+    render json: Cart.destroy(params[:id]).id
+  end
+
 end

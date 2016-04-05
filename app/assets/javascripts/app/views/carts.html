@@ -2,10 +2,16 @@
 
 <button ng-click='cart.newCart()'>New Cart</button>
 
-<div ng-repeat='c in cart.carts'>
+<div ng-init='cOMessage=false' ng-repeat='c in cart.carts'>
   <ul>
     <strong>Cart {{$index + 1}}</strong>
     <cart-item id='c.id'></cart-item>
     <button ng-click='cart.checkout(c.id)'>Checkout</button>
+    <button ng-click='cart.deleteCart(c.id)'>Delete Cart</button>
+
+    <div id='checout_message' ng-show='cOMessage'>
+      Stellar Purchace! You will recieve an email confirmation shortly.
+    </div>
+
   </ul>
 </div>

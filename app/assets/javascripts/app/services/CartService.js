@@ -22,7 +22,11 @@ function CartService($http, $cookies) {
 
   this.newCart = function() {
     return $http.post('/carts', {'user_id': $cookies.get('user_id')});
-  }
+  };
+
+  this.deleteCart = function(id) {
+    return $http.delete('/carts/' + id);
+  };
 
 };
 
