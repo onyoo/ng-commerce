@@ -17,6 +17,10 @@ var CartItem = {
         return total;
     }
 
+    ctrl.changeQuant = function(id) {
+      CartService.changeQuant(id, this.quantity)
+    }
+
 
     CartService
       .getContents(this.id)

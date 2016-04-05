@@ -1,7 +1,7 @@
 function RatingService($http) {
 
   this.getRatings = function(id) {
-    return $http.get('/ratings/' + id)
+    return $http.get('/ratings/' + id);
   };
 
 };

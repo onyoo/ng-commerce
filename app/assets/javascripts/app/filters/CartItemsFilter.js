@@ -9,13 +9,19 @@ function CartItemsFilter() {
         items[i]['quantity'] = 1;
         distinct.push(items[i]);
       }else{
-        last = distinct[distinct.length - 1]
-        if(last.quantity == NaN){
-          last['quantity'] = 1
-        }else{
-          last['quantity']++
+
+
+        var index = -1;
+        for(var o = 0, len = distinct.length; o < len; o++) {
+          if (distinct[o].id === items[i].id) {
+            index = o;
+            break;
+          }
         }
-        // unique[items[i].id] += 1;
+
+
+        last = distinct[index]
+        last['quantity']++
       }
       unique[items[i].id] = 0;
     }

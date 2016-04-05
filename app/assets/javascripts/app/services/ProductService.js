@@ -8,7 +8,7 @@ function ProductService($http) {
   };
 
   this.getProduct = function(id) {
-    return $http.get('/products/' + id)
+    return $http.get('/products/' + id);
   };
 
 };
