@@ -1,5 +1,9 @@
 class CartsController < ApplicationController
 
+  def create
+    render json: Cart.create(user_id: params[:user_id])
+  end
+
   def show
     if (Integer(params[:id]) rescue false)
       render json: Cart.find(params[:id]).products

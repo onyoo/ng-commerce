@@ -20,6 +20,10 @@ function CartService($http, $cookies) {
     return $http.get('/users/' + $cookies.get('user_id'));
   };
 
+  this.newCart = function() {
+    return $http.post('/carts', {'user_id': $cookies.get('user_id')});
+  }
+
 };
 
 angular

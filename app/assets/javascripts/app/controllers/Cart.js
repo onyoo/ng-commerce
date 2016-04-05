@@ -4,8 +4,14 @@ function Cart(cartIndex, CartService) {
   ctrl.carts = cartIndex.data;
 
   ctrl.checkout = function(id) {
-      CartService.checkout(id);
+    CartService.checkout(id);
   };
+
+  ctrl.newCart = function() {
+    CartService.newCart().success(function(resp) {
+      ctrl.carts.push(resp);
+    });
+  }
 
 };
 

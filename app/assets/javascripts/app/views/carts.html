@@ -1,5 +1,7 @@
 <h3>My Carts</h3>
 
+<button ng-click='cart.newCart()'>New Cart</button>
+
 <div ng-repeat='c in cart.carts'>
   <ul>
     <strong>Cart {{$index + 1}}</strong>
