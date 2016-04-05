@@ -2,9 +2,9 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
   var ctrl = this;
 
   ctrl.search = '';
-  ctrl.user = $cookies.get('user_name')
+  ctrl.user = $cookies.get('user_name');
 
-  ctrl.message = 'Welcome ' + (ctrl.user || 'Guest');
+
   ctrl.allProducts = productIndex.data;
   ctrl.categories = categoryTabs.data;
   ctrl.email = '';
@@ -16,12 +16,16 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
       'email': ctrl.email,
       'password': ctrl.password
     };
-    SessionService.submit_form(credentials);
+    SessionService.submit_form(credentials).success(function(user) {
+      ctrl.user = user;
+      $cookies.put('user_name', user.name);
+      $cookies.put('user_id', user.id);
+    });
     $state.go('home.index');
   };
 
   ctrl.logout = function() {
-    return SessionService.logout()
+    return SessionService.logout();
   };
 
   ctrl.setActive = function(category) {

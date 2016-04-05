@@ -7,9 +7,9 @@
       <p> Order Quantity: {{ product.quantity }}</p>
       <button ng-click='showQuantForm = true' ng-show='!showQuantForm'>Change Quantity</button>
         <div ng-show='showQuantForm'>
-          <form action="" ng-submit='cartItem.changeQuant(product.id); showQuantForm = false; cartItem.data.$apply'>
-            How many MORE? <input type="number" ng-model='cartItem.quantity'>
-            <input type="submit" value='Submit' ng-click=''>
+          <form action="" ng-submit='cartItem.changeQuant(cartItem.id, product.id); showQuantForm = false;'>
+            How many do you need? <input type="number" ng-model='cartItem.quantity'>
+            <input type="submit" value='Submit'>
           </form>
         </div>
       <br><br>

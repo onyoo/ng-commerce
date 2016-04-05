@@ -13,13 +13,15 @@ var CartItem = {
         for(var i = 0; i < ctrl.data.length; i++){
             var product = ctrl.data[i];
             total += product.price;
-        }
+        };
         return total;
-    }
+    };
 
-    ctrl.changeQuant = function(id) {
-      CartService.changeQuant(id, this.quantity)
-    }
+    ctrl.changeQuant = function(cartId, productId) {
+      CartService.changeQuant(cartId, productId, this.quantity).success(function(cartItems) {
+        ctrl.data = cartItems;
+      });
+    };
 
 
     CartService
@@ -29,7 +31,7 @@ var CartItem = {
         for( var i = 0; i < ctrl.data.length; i++){
           // ctrl.total += ctrl.data[i].price;
           ctrl.cartTotal.push(ctrl.data[i].price);
-        }
+        };
       });
 
   },

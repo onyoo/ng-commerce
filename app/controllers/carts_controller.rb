@@ -10,18 +10,20 @@ class CartsController < ApplicationController
   end
 
   def update
-    cart_products = User.find_by(name: params[:id]).carts.last.products
+    cart = Cart.find(params[:cart_id])
     product = Product.find(params[:product_id])
-    if params[:quantity] && ((product.inventory - params[:quantity]) > 0 )
-      params[:quantity].times do
-        cart_products << product
-      end
-      product.inventory -= params[:quantity]
+    quant = params[:quantity]
+
+    if quant > 0 && quant <= product.inventory
+      deleted_count = cart.products.destroy(product.id).count
+      product.inventory += deleted_count
+      cart.products.push([product]*quant).flatten
+      product.inventory -= quant
+      cart.save
+      product.save
+      render json: cart.products
     else
-      cart_products << product
-      product.inventory -= 1
+      render nothing: true, status: 402;
     end
-    product.save
-    render nothing: true, status: 202
   end
 end

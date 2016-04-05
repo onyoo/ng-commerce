@@ -14,8 +14,8 @@ function CartService($http, $cookies) {
     $http.patch('/carts/' + $cookies.get('user_name'), {product_id: id});
   };
 
-  this.changeQuant = function(id, quantity) {
-    $http.patch('/carts/' + $cookies.get('user_name'), {'product_id': id, 'quantity': quantity})
+  this.changeQuant = function(cart_id, product_id, quantity) {
+    return $http.patch('/carts/' + $cookies.get('user_name'), {'cart_id': cart_id, 'product_id': product_id, 'quantity': quantity});
   };
 
 };
