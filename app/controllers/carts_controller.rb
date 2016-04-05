@@ -15,14 +15,7 @@ class CartsController < ApplicationController
     quant = params[:quantity]
 
     if quant > 0 && quant <= product.inventory
-      if product.in?(cart.products)
-        deleted_count = cart.products.destroy(product.id).count
-        product.inventory += deleted_count
-      end
-      cart.products.push([product]*quant).flatten
-      product.inventory -= quant
-      cart.save
-      product.save
+      Cart.update_cart(cart,product,quant)
       render json: cart.products
     else
       render nothing: true, status: 402;
