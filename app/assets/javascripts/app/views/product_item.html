@@ -1,6 +1,6 @@
 <li>
   <a class="product" ui-sref="home.product({id: product.product.id})">{{product.product.name}}</a>
-  <button id="add_cart" ng-click="product.getCartIndex(); product.askCart = true">Add To Cart</button>
+  <button id="add_cart" ng-click="product.getCartIndex();">Add To Cart</button>
   <p>Price: {{ product.product.price }} </p>
   <p>Only: {{ product.product.inventory }} left! </p>
 </li>

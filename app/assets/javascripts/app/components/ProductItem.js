@@ -12,6 +12,7 @@ var ProductItem = {
     };
 
     ctrl.getCartIndex = function() {
+      ctrl.askCart = true;
       CartService.getCartIndex().success(function(index) {
         ctrl.carts = index;
       });

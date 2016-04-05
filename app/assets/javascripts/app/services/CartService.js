@@ -1,10 +1,5 @@
 function CartService($http, $cookies) {
 
-  this.getCarts = function() {
-    //need to find user by id not name
-    return $http.get('/carts/' + $cookies.get('user_name'));
-  };
-
   this.getContents = function(id) {
     return $http.get('/carts/' + id);
   };

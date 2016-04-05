@@ -36,7 +36,7 @@ angular
         controller: 'Cart as cart',
         resolve: {
           cartIndex: function(CartService) {
-            return CartService.getCarts();
+            return CartService.getCartIndex();
           }
         }
       })

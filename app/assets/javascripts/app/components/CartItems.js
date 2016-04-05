@@ -18,6 +18,7 @@ var CartItem = {
     };
 
     ctrl.changeQuant = function(cartId, productId) {
+      showQuantForm = false;
       CartService.changeQuant(cartId, productId, this.quantity).success(function(cartItems) {
         ctrl.data = cartItems;
       });

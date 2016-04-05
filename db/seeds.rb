@@ -8,12 +8,11 @@
 
 user = User.create(name: 'Test', email: 'tim@cambridge.ac.uk', password: 'greyhound')
 
-dog_toy = Product.create(name: 'machanical rabbit', price: 1000, inventory: 50)
+dog_toy = Product.create(name: 'machanical rabbit', price: 1000, inventory: 49)
 dog_bone = Product.create(name: 'dog bone', price: 10, inventory: 50)
-tennis_balls = Product.create(name: 'tennis balls', price: 1, inventory: 50)
+tennis_balls = Product.create(name: 'tennis balls', price: 1, inventory: 49)
 dog_treats = Product.create(name: 'dog treats', price: 5, inventory: 50)
-
-crash_pad = Product.create(name: 'crash pad', price: 300, inventory: 50)
+crash_pad = Product.create(name: 'crash pad', price: 300, inventory: 49)
 la_sortiva = Product.create(name: 'la Sportiva Skwama', price: 200, inventory: 50)
 
 dog_toys_cat = Category.create(name:'Dog Toys')
