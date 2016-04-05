@@ -1,20 +1,34 @@
 var ProductItem = {
-  template: [
-      '<li>',
-        '<a class="product" ui-sref="home.product({id: product.product.id})">{{product.product.name}}</a>',
-        '<button id="add_cart" ng-click="product.addToCart(product.product.id)">Add To Cart</button>',
-        '<p>Price: {{ product.product.price }} </p>',
-        '<p>Only: {{ product.product.inventory }} left! </p>',
-      '</li>'
-  ].join(''),
+  templateUrl: 'app/views/product_item.html',
   bindings: {
     product: '='
   },
   controller: function(CartService) {
-    this.addToCart = function(id) {
-      CartService.addToCart(id);
+    var ctrl = this;
+
+    ctrl.addToCart = function(product_id) {
+      CartService.addToCart(ctrl.activeCart.id, product_id);
       this.product.inventory -= 1;
     };
+
+    ctrl.getCartIndex = function() {
+      CartService.getCartIndex().success(function(index) {
+        ctrl.carts = index;
+      });
+    };
+
+    ctrl.setActiveCart = function(cartId) {
+      for(i = 0; i < ctrl.carts.length; i++) {
+        if(ctrl.carts[i].id == cartId) {
+          ctrl.activeCart = ctrl.carts[i];
+          break;
+        };
+      };
+      ctrl.active = undefined;
+      ctrl.askCart = false;
+      ctrl.addToCart(ctrl.product.id)
+    };
+
   },
   controllerAs: 'product'
 };

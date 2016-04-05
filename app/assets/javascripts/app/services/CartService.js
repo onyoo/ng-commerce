@@ -9,18 +9,21 @@ function CartService($http, $cookies) {
     return $http.get('/carts/' + id);
   };
 
-  this.addToCart = function(id) {
-    //need to find user by id not name
-    $http.patch('/carts/' + $cookies.get('user_name'), {product_id: id});
+  this.addToCart = function(cart_id, product_id) {
+    $http.patch('/carts/' + cart_id, {'product_id': product_id, 'quantity': 1});
   };
 
   this.changeQuant = function(cart_id, product_id, quantity) {
-    return $http.patch('/carts/' + $cookies.get('user_name'), {'cart_id': cart_id, 'product_id': product_id, 'quantity': quantity});
+    return $http.patch('/carts/' + cart_id, {'product_id': product_id, 'quantity': quantity});
   };
 
   this.checkout = function(id) {
     return $http.patch('/checkout/' + id);
-  }
+  };
+
+  this.getCartIndex = function() {
+    return $http.get('/users/' + $cookies.get('user_id'));
+  };
 
 };
 

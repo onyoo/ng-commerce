@@ -10,13 +10,15 @@ class CartsController < ApplicationController
   end
 
   def update
-    cart = Cart.find(params[:cart_id])
+    cart = Cart.find(params[:id])
     product = Product.find(params[:product_id])
     quant = params[:quantity]
 
     if quant > 0 && quant <= product.inventory
-      deleted_count = cart.products.destroy(product.id).count
-      product.inventory += deleted_count
+      if product.in?(cart.products)
+        deleted_count = cart.products.destroy(product.id).count
+        product.inventory += deleted_count
+      end
       cart.products.push([product]*quant).flatten
       product.inventory -= quant
       cart.save
