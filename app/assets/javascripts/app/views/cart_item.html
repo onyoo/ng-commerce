@@ -17,7 +17,7 @@
             max='{{product.inventory + product.quantity}}'>
             <div ng-if='quant_form.quantity.$touched'>
               <div ng-if='quant_form.quantity.$error.max'>
-                {{quant_form.quantity.$viewValue}} exceeds our current inventory of {{product.inventory}}. Please contact us to place this order.
+                {{quant_form.quantity.$viewValue}} exceeds our current inventory of {{product.inventory + product.quantity}}. Please contact us to place this order.
               </div>
               <div ng-if='quant_form.quantity.$error.min'>
                 Quantity must be greater than 0.

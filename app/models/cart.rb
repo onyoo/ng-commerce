@@ -5,7 +5,7 @@ class Cart < ActiveRecord::Base
 
   def self.update_cart(cart,product,quant)
     if product.in?(cart.products)
-      deleted_count = cart.products.count
+      deleted_count = cart.products.where(id: product.id).count
       cart.products.destroy(product.id)
       product.inventory += deleted_count
     end
