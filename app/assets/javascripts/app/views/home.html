@@ -4,7 +4,7 @@
 
 
 </div>
-  <div id='login_div' class='header_content' ng-click='home.clearActive()' ui-sref='home.login' ng-show='!home.user'>
+  <div id='login_div' class='header_content' ng-click='home.clearActiveTab()' ui-sref='home.login' ng-show='!home.user'>
     Login
   </div>
 
@@ -13,15 +13,15 @@
   </div>
 
   <div id='cart_div' class='header_content' ng-show='home.user'>
-    <a href="" ui-sref='home.cart'>My cart</a>
+    <a href="" ui-sref='home.cart' ng-click='home.clearActiveTab()'>My cart</a>
   </div>
 
   <div id="category_div" class='header_content'>
-    <a class='cat_tab' href='' ng-click='home.clearActive()' ui-sref='home.index'>Home</a>
+    <a class='cat_tab' href='' ng-click='home.clearActiveTab()' ui-sref='home.index'>Home</a>
 
     <span ng-repeat='category in home.categories'>
       <span ng-class='{active : home.activeMenu === category}'>
-        <a class='cat_tab' href='' ng-click='home.setActive(category)' ui-sref='home.category({name: category.name.split(" ").join("-")})'>{{category.name}}</a>
+        <a class='cat_tab' href='' ng-click='home.setActiveTab(category)' ui-sref='home.category({name: category.name.split(" ").join("-")})'>{{category.name}}</a>
       </span>
     </span>
   </div>

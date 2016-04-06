@@ -30,11 +30,11 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
     return SessionService.logout();
   };
 
-  ctrl.setActive = function(category) {
+  ctrl.setActiveTab = function(category) {
     ctrl.activeMenu = category;
   };
 
-  ctrl.clearActive = function() {
+  ctrl.clearActiveTab = function() {
     ctrl.activeMenu = '';
   }
 }
