@@ -17,14 +17,16 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
       'password': ctrl.password
     };
     SessionService.submit_form(credentials).success(function(user) {
-      ctrl.user = user;
       $cookies.put('user_name', user.name);
       $cookies.put('user_id', user.id);
+
+      ctrl.user = user.name
+      $state.go('home.index', {}, {reload: true}) // reloads controller to reset XSRF-TOKEN needed for next log-in
     });
-    $state.go('home.index');
   };
 
   ctrl.logout = function() {
+    ctrl.user = undefined;
     return SessionService.logout();
   };
 
