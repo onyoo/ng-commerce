@@ -1,17 +1,16 @@
 <h3>My Carts</h3>
 
-<button ng-click='cart.newCart()'>New Cart</button>
+<button ng-click='cart.newCart()' ng-show='!cart.cOMessage'>New Cart</button>
 
-<div ng-init='cOMessage=false' ng-repeat='c in cart.carts'>
+<div ng-repeat='c in cart.carts'  ng-init='cOMessage=false'>
+  <div id='checout_message' ng-show='cart.cOMessage'>
+    Stellar Purchace! You will recieve an email confirmation shortly.
+  </div>
   <ul>
     <strong>Cart {{$index + 1}}</strong>
     <cart-item id='c.id'></cart-item>
     <button ng-click='cart.checkout(c.id)'>Checkout</button>
     <button ng-click='cart.deleteCart(c.id)'>Delete Cart</button>
-
-
   </ul>
-  <div id='checout_message' ng-show='cart.cOMessage'>
-    Stellar Purchace! You will recieve an email confirmation shortly.
-  </div>
+
 </div>
