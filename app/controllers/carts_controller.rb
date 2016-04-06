@@ -13,7 +13,7 @@ class CartsController < ApplicationController
     product = Product.find(params[:product_id])
     quant = params[:quantity]
 
-    if quant > 0 && quant <= product.inventory
+    if quant > 0 && (quant - cart.products.where(name: product.name).count) <= product.inventory
       Cart.update_cart(cart,product,quant)
       render json: cart.products
     else

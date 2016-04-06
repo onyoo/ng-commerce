@@ -9,13 +9,12 @@
         <div ng-show='showQuantForm'>
           <form action="" name='quant_form' ng-submit='cartItem.changeQuant(cartItem.id, product.id);'>
             How many do you need?
-            inventory: {{product.inventory}}
             <input
             type="number"
             ng-model='cartItem.quantity'
             name='quantity'
             min='0'
-            max='{{product.inventory + cartItem.quantity}}'>
+            max='{{product.inventory + product.quantity}}'>
             <div ng-if='quant_form.quantity.$touched'>
               <div ng-if='quant_form.quantity.$error.max'>
                 {{quant_form.quantity.$viewValue}} exceeds our current inventory of {{product.inventory}}. Please contact us to place this order.
