@@ -7,14 +7,14 @@ var ProductItem = {
     var ctrl = this;
 
     ctrl.addToCart = function(product_id) {
-      CartService.addToCart(ctrl.activeCart.id, product_id);
+      CartService.changeQuant(ctrl.activeCart.id, product_id, 1);
       this.product.inventory -= 1;
     };
 
     ctrl.getCartIndex = function() {
       ctrl.askCart = true;
-      CartService.getCartIndex().success(function(index) {
-        ctrl.carts = index;
+      CartService.getCartIndex().then(function(index) {
+        ctrl.carts = index.data;
       });
     };
 

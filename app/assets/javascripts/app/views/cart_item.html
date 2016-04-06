@@ -9,6 +9,7 @@
         <div ng-show='showQuantForm'>
           <form action="" name='quant_form' ng-submit='cartItem.changeQuant(cartItem.id, product.id);'>
             How many do you need?
+            inventory: {{product.inventory}}
             <input
             type="number"
             ng-model='cartItem.quantity'
@@ -20,7 +21,7 @@
                 {{quant_form.quantity.$viewValue}} exceeds our current inventory of {{product.inventory}}. Please contact us to place this order.
               </div>
               <div ng-if='quant_form.quantity.$error.min'>
-                Quantity must be greater than 0. 
+                Quantity must be greater than 0.
               </div>
             </div>
             <div class='submit_input'><input type="submit" value='Submit'></div>

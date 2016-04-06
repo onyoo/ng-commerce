@@ -4,9 +4,9 @@ function CartService($http, $cookies) {
     return $http.get('/carts/' + id);
   };
 
-  this.addToCart = function(cart_id, product_id) {
-    $http.patch('/carts/' + cart_id, {'product_id': product_id, 'quantity': 1});
-  };
+  // this.addToCart = function(cart_id, product_id) {
+  //   $http.patch('/carts/' + cart_id, {'product_id': product_id, 'quantity': 1, 'addToCart': true});
+  // };
 
   this.changeQuant = function(cart_id, product_id, quantity) {
     return $http.patch('/carts/' + cart_id, {'product_id': product_id, 'quantity': quantity});
