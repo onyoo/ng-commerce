@@ -11,4 +11,4 @@ function CategoryService($http) {
 
 angular
   .module('app')
-  .service('CategoryService', CategoryService)
+  .service('CategoryService', CategoryService);

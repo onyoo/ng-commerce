@@ -36,8 +36,8 @@ function Home(productIndex, categoryTabs, SessionService, $cookies, $scope, $sta
 
   ctrl.clearActiveTab = function() {
     ctrl.activeMenu = '';
-  }
-}
+  };
+};
 
 angular
   .module('app')

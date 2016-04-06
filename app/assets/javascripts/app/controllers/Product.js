@@ -10,8 +10,8 @@ function Product(productShow, productRatings, ProductService) {
     });
   };
 
-}
+};
 
 angular
   .module('app')
-  .controller('Product', Product)
+  .controller('Product', Product);

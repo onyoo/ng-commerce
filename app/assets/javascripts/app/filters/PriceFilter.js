@@ -12,9 +12,9 @@ function PriceFilter() {
     };
 
     return itemsInRange;
-  }
-}
+  };
+};
 
 angular
   .module('app')
-  .filter('priceFilter', PriceFilter)
+  .filter('priceFilter', PriceFilter);
