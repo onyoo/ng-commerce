@@ -1,19 +1,21 @@
-<div ng-init='home.min = 0; home.max= 10000'>
-  <p>Search
+<div id='filters' ng-init='min = 0; max= 10000'>
+  <p>Search Products:
       <input
       type="text"
-      ng-model='home.search'>
+      ng-model='search'>
   </p>
-  <p>Price Min:
+  <p> Min: $
       <input
       type="number"
-      ng-model='home.min'>
-      Max: <input
+      ng-model='min'>
+      Max: $
+      <input
       type="number"
-      ng-model='home.max'>
+      ng-model='max'>
   </p>
 </div>
 
-<ul ng-repeat='product in home.allProducts | filter:home.search | priceFilter:[home.min,home.max]'>
+<ul ng-repeat='product in home.allProducts | filter:search | priceFilter:min:max'>
+
   <product-item product='product'></product-item>
 </ul>

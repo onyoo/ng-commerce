@@ -10,7 +10,6 @@ function CartItemsFilter() {
         distinct.push(items[i]);
       }else{
 
-
         var index = -1;
         for(var o = 0, len = distinct.length; o < len; o++) {
           if (distinct[o].id === items[i].id) {

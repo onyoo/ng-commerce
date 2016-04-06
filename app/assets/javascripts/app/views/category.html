@@ -1,12 +1,23 @@
 <h2> {{ category.category.name }} </h2>
 
-<p>Search
-    <input
-    type="text"
-    ng-model='search'>
-</p>
+<div id='filters' ng-init='min = 0; max= 10000'>
+  <p>Search Products:
+      <input
+      type="text"
+      ng-model='search'>
+  </p>
+  <p> Min: $
+      <input
+      type="number"
+      ng-model='min'>
+      Max: $
+      <input
+      type="number"
+      ng-model='max'>
+  </p>
+</div>
 
 
-<ul ng-repeat='product in category.products | filter:search'>
+<ul ng-repeat='product in category.products | filter:search | priceFilter:min:max'>
   <product-item product='product'></product-item>
 </ul>
