@@ -16,11 +16,6 @@ function Cart(cartIndex, CartService) {
     CartService.checkout(id);
   };
 
-  ctrl.newCart = function() {
-    CartService.newCart().success(function(resp) {
-      ctrl.carts.push(resp);
-    });
-  };
 
   ctrl.deleteCart = function(id) {
     CartService.deleteCart(id).success(function(resp_id) {

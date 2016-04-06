@@ -8,7 +8,12 @@
   </li>
   <div ng-show='product.askCart'>
     <p>Which cart would you like to add to?</p>
-    <div ng-repeat='cart in product.carts'>
-      <input type="checkbox" ng-model='product.active' ng-change='product.setActiveCart(cart.id);'><span>ID#{{cart.id}}</span> -- <span>Last Modified:{{cart.updated_at | date:short}}</span>
+    <div ng-show='product.carts.length > 0'>
+      <div ng-repeat='cart in product.carts'>
+        <input type="checkbox" ng-model='product.active' ng-change='product.setActiveCart(cart.id);'><span>ID#{{cart.id}}</span> -- <span>Last Modified:{{cart.updated_at | date:short}}</span>
+      </div>
+    </div>
+    <div ng-show='product.carts.length === 0'>
+      <new-cart controller='product'></new-cart>
     </div>
   </div>

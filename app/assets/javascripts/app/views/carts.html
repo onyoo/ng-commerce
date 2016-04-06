@@ -1,6 +1,6 @@
 <h3>My Carts</h3>
 
-<button ng-click='cart.newCart()' ng-show='!cart.cOMessage'>New Cart</button>
+<new-cart controller='cart'></new-cart>
 
 <div ng-repeat='c in cart.carts'  ng-init='cOMessage=false'>
   <div id='checout_message' ng-show='cart.cOMessage'>
