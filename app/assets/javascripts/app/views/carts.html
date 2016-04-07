@@ -8,9 +8,9 @@
   </div>
   <ul>
     <strong>Cart {{$index + 1}}</strong>
-    <cart-item id='c.id'></cart-item>
-    <button ng-click='cart.checkout(c.id)'>Checkout</button>
-    <button ng-click='cart.deleteCart(c.id)'>Delete Cart</button>
+    <cart-item id='c.id' finished='!cart.cOMessage'></cart-item>
+    <button ng-show='!cart.cOMessage' ng-click='cart.checkout(c.id)'>Checkout</button>
+    <button ng-show='!cart.cOMessage' ng-click='cart.deleteCart(c.id)'>Delete Cart</button>
   </ul>
 
 </div>

@@ -1,7 +1,8 @@
 var CartItem = {
   templateUrl: 'app/views/cart_item.html',
   bindings: {
-    id: '='
+    id: '=',
+    finished: '='
   },
   controller: function(CartService) {
     var ctrl = this;
