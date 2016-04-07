@@ -1,5 +1,7 @@
 class Cart < ActiveRecord::Base
   belongs_to :user
+  validates_associated :user
+
   has_many :line_items
   has_many :products, through: :line_items
 

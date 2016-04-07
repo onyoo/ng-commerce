@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+
   before do
     @user = User.create(name: 'Test', email: 'testy@cambridge.ac.uk', password: 'whatpassword')
     @cart = Cart.create(user_id: @user.id)
@@ -26,6 +27,16 @@ RSpec.describe User, type: :model do
       Order.create(user_id: @user.id, cart_id: @cart.id)
     end
     expect(@user.orders.length).to eq(2)
+  end
+
+  it 'must have a password' do
+    user_2 = User.create(email: "email@gmail.com")
+    expect(user_2.valid?).to eq(false)
+  end
+
+  it 'must have an email' do
+    user_2 = User.create(password: "Ibuythings")
+    expect(user_2.valid?).to eq(false)
   end
 
 end
