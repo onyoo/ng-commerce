@@ -1,4 +1,4 @@
-function Cart(cartIndex, CartService) {
+function Carts(cartIndex, CartService) {
   var ctrl = this;
 
   ctrl.carts = cartIndex.data;
@@ -35,4 +35,4 @@ function Cart(cartIndex, CartService) {
 
 angular
   .module('app')
-  .controller('Cart', Cart);
+  .controller('Carts', Carts);

@@ -33,7 +33,7 @@ angular
       .state('home.cart', {
         url: 'cart',
         templateUrl: 'app/views/carts.html',
-        controller: 'Cart as cart',
+        controller: 'Carts as carts',
         resolve: {
           cartIndex: function(CartService) {
             return CartService.getCartIndex();

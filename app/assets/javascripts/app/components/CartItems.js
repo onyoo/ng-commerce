@@ -10,13 +10,13 @@ var CartItem = {
     ctrl.cartTotal = [].map(function(a) {return a.quantity});
 
     ctrl.getTotal = function(){
-        var total = 0;
+      var total = 0;
 
-        for(var i = 0; i < ctrl.cartItems.length; i++){
-            var product = ctrl.cartItems[i];
-            total += product.price;
-        };
-        return total;
+      for(var i = 0; i < ctrl.cartItems.length; i++){
+        var product = ctrl.cartItems[i];
+        total += product.price;
+      };
+      return total;
     };
 
     ctrl.changeQuant = function(cartId, productId) {
