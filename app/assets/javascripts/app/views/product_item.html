@@ -2,7 +2,7 @@
     <div class="product_item" >
       <a class="product" ui-sref="home.product({id: product.product.id})">{{product.product.name}}</a>
       <button id="add_cart" ng-click="product.getCartIndex();" ng-show='product.product.inventory > 0'>Add To Cart</button>
-      <p>Price: {{ product.product.price }} </p>
+      <p>Price: {{ product.product.price | currency }} </p>
       <p>Only: {{ product.product.inventory }} left! </p>
     </div>
   </li>

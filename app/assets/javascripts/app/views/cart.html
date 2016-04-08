@@ -2,8 +2,8 @@
 <div ng-if='cart.lineItems' ng-init='showQuantForm = false'>
 
     <div ng-repeat='product in cart.lineItems | lineItemsFilter' ng-init='product.quantity = 1'>
-      <p>{{product.name}}</p>
-      <p>${{product.price}}</p>
+      <p>{{ product.name }}</p>
+      <p>{{ product.price | currency }}</p>
       <p> Order Quantity: {{ product.quantity }}</p>
       <button ng-click='showQuantForm = true' ng-show='!showQuantForm && cart.finished'>Change Quantity</button>
         <div ng-show='showQuantForm'>
@@ -31,5 +31,5 @@
 
   <br>
 
-  <strong>Total: {{ cart.getTotal() }}</strong>
+  <strong>Total: {{ cart.getTotal() | currency }}</strong>
 </div>

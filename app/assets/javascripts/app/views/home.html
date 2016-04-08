@@ -1,9 +1,10 @@
-<div class='header_content'>
-<h3 >The Best products in the world. Ever.</h3>
-<p>Welcome {{home.user || 'Guest'}}</p>
+<div id='main_header'>
+  
+  <div class='header_content'>
+    <h3 >The Best products in the world. Ever.</h3>
+    <p>Welcome {{home.user || 'Guest'}}</p>
+  </div>
 
-
-</div>
   <div id='login_div' class='header_content' ng-click='home.clearActiveTab()' ui-sref='home.login' ng-show='!home.user'>
     Login
   </div>
@@ -25,6 +26,7 @@
       </span>
     </span>
   </div>
+</div>
 
 <!-- header content-->
 <!-- header content-->
