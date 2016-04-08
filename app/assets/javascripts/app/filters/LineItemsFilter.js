@@ -1,4 +1,4 @@
-function CartItemsFilter() {
+function LineItemsFilter() {
   return function(items) {
 
     var unique = {};
@@ -34,4 +34,4 @@ function CartItemsFilter() {
 
 angular
   .module('app')
-  .filter('cartItemsFilter', CartItemsFilter);
+  .filter('lineItemsFilter', LineItemsFilter);

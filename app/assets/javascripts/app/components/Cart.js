@@ -12,8 +12,8 @@ var Cart = {
     ctrl.getTotal = function(){
       var total = 0;
 
-      for(var i = 0; i < ctrl.cartItems.length; i++){
-        var product = ctrl.cartItems[i];
+      for(var i = 0; i < ctrl.lineItems.length; i++){
+        var product = ctrl.lineItems[i];
         total += product.price;
       };
       return total;
@@ -21,8 +21,8 @@ var Cart = {
 
     ctrl.changeQuant = function(cartId, productId) {
       showQuantForm = false;
-      CartService.changeQuant(cartId, productId, this.quantity).success(function(cartItems) {
-        ctrl.cartItems = cartItems;
+      CartService.changeQuant(cartId, productId, this.quantity).success(function(lineItems) {
+        ctrl.lineItems = lineItems;
       });
       ctrl.quantity = undefined;
     };
@@ -31,9 +31,9 @@ var Cart = {
     CartService
       .getContents(this.id)
       .then(function(resp) {
-        ctrl.cartItems = resp.data;
-        for( var i = 0; i < ctrl.cartItems.length; i++){
-          ctrl.cartTotal.push(ctrl.cartItems[i].price);
+        ctrl.lineItems = resp.data;
+        for( var i = 0; i < ctrl.lineItems.length; i++){
+          ctrl.cartTotal.push(ctrl.lineItems[i].price);
         };
       });
 

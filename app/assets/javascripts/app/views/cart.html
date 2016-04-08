@@ -1,7 +1,7 @@
 
-<div ng-if='cart.cartItems' ng-init='showQuantForm = false'>
+<div ng-if='cart.lineItems' ng-init='showQuantForm = false'>
 
-    <div ng-repeat='product in cart.cartItems | cartItemsFilter' ng-init='product.quantity = 1'>
+    <div ng-repeat='product in cart.lineItems | lineItemsFilter' ng-init='product.quantity = 1'>
       <p>{{product.name}}</p>
       <p>${{product.price}}</p>
       <p> Order Quantity: {{ product.quantity }}</p>
