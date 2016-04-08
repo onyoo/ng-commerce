@@ -103,6 +103,13 @@
   height: 6em;
 }
 
+.rating_comment {
+  background-color: lightgreen;
+  border: black solid 1px;
+  padding: .5em 1.5em;
+  margin: 1em;
+}
+
 ul{
   list-style-type: none;
   background-color: lightgrey;

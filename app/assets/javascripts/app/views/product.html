@@ -12,12 +12,12 @@
     <div class='rating_div'>
       <p>Rating: {{rating.score}}</p>
       <p>{{rating.body}}</p>
+      <p>Helpfulness rating: {{rating.comments | helpfulnessFilter}}</p>
       <br>
-      <div ng-repeat='comment in rating.comments'>
-        <p>rating_id: {{comment.rating_id}}</p>
-        <p>body: {{comment.body}}</p>
-        <p>score: {{comment.score}}</p>
-        <p>created_at: {{comment.created_at}}</p>
+      <div ng-repeat='comment in rating.comments' class='rating_comment'>
+        <p>{{comment.body}}</p>
+        <p>Helpfulness: {{comment.score}}</p>
+        <p>Commented on: {{comment.created_at | date:short}}</p>
         <br><br>
       </div>
       <review r='rating.id' product='product'></review>
