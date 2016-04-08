@@ -1,5 +1,5 @@
-var CartItem = {
-  templateUrl: 'app/views/cart_item.html',
+var Cart = {
+  templateUrl: 'app/views/cart.html',
   bindings: {
     id: '=',
     finished: '='
@@ -38,9 +38,9 @@ var CartItem = {
       });
 
   },
-  controllerAs: 'cartItem'
+  controllerAs: 'cart'
 };
 
 angular
   .module('app')
-  .component('cartItem', CartItem);
+  .component('cart', Cart);

@@ -1,17 +1,17 @@
 
-<div ng-if='cartItem.cartItems' ng-init='showQuantForm = false'>
+<div ng-if='cart.cartItems' ng-init='showQuantForm = false'>
 
-    <div ng-repeat='product in cartItem.cartItems | cartItemsFilter' ng-init='product.quantity = 1'>
+    <div ng-repeat='product in cart.cartItems | cartItemsFilter' ng-init='product.quantity = 1'>
       <p>{{product.name}}</p>
       <p>${{product.price}}</p>
       <p> Order Quantity: {{ product.quantity }}</p>
-      <button ng-click='showQuantForm = true' ng-show='!showQuantForm && cartItem.finished'>Change Quantity</button>
+      <button ng-click='showQuantForm = true' ng-show='!showQuantForm && cart.finished'>Change Quantity</button>
         <div ng-show='showQuantForm'>
-          <form action="" name='quant_form' ng-submit='cartItem.changeQuant(cartItem.id, product.id);'>
+          <form action="" name='quant_form' ng-submit='cart.changeQuant(cart.id, product.id);'>
             How many do you need?
             <input
             type="number"
-            ng-model='cartItem.quantity'
+            ng-model='cart.quantity'
             name='quantity'
             min='0'
             max='{{product.inventory + product.quantity}}'>
@@ -31,5 +31,5 @@
 
   <br>
 
-  <strong>Total: {{ cartItem.getTotal() }}</strong>
+  <strong>Total: {{ cart.getTotal() }}</strong>
 </div>

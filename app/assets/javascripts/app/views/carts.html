@@ -8,7 +8,7 @@
   </div>
   <ul>
     <strong>Cart {{$index + 1}}</strong>
-    <cart-item id='cart.id' finished='!carts.cOMessage'></cart-item>
+    <cart id='cart.id' finished='!carts.cOMessage'></cart>
     <button ng-show='!carts.cOMessage' ng-click='carts.checkout(cart.id)'>Checkout</button>
     <button ng-show='!carts.cOMessage' ng-click='carts.deleteCart(cart.id)'>Delete Cart</button>
   </ul>
