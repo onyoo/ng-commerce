@@ -31,7 +31,9 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    render json: Cart.destroy(params[:id]).id
+    cart = Cart.find(params[:id])
+    cart.replenish_products
+    render json: Cart.destroy(cart.id).id
   end
 
 end

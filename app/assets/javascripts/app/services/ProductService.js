@@ -11,8 +11,18 @@ function ProductService($http) {
     return $http.get('/products/' + id);
   };
 
-  this.submitReview = function(id, review, rating) {
-    return $http.patch('/products/' + id, {'review': review, 'rating': rating});
+  this.submitReview = function(id, review, rating, ratingId) {
+    if(ratingId === undefined){
+      var rId = null;
+    }else{
+      var rId = ratingId;
+    }
+    data = {
+      'review': review,
+      'rating': rating,
+      'rating_id': rId
+    };
+    return $http.patch('/products/' + id, data);
   };
 
 };

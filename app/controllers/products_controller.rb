@@ -15,7 +15,8 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
-    product.ratings.create(body: params[:review], score: params[:rating])
+    binding.pry
+    product.ratings.create(body: params[:review], score: params[:rating], rating_id: params[:rating_id])
     render json: product.ratings.last
   end
 

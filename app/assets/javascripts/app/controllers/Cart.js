@@ -18,10 +18,10 @@ function Cart(cartIndex, CartService) {
 
 
   ctrl.deleteCart = function(id) {
-    CartService.deleteCart(id).success(function(resp_id) {
+    CartService.deleteCart(id).then(function(resp_id) {
       var index = -1;
       for (i=0; i < ctrl.carts.length; i++) {
-        if( ctrl.carts[i].id == resp_id ){
+        if( ctrl.carts[i].id == resp_id.data ){
           index = i;
           break;
         };
