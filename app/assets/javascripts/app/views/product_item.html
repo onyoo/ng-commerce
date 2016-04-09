@@ -3,7 +3,7 @@
       <a class="product" ui-sref="home.product({id: product.product.id})">
         <img class='product_index_image' ng-src="{{product.product.image_url}}" alt="{{product.product.name}} picture"/>
       </a>
-      <a class="product" ui-sref="home.admin({id: product.product.id})">Admin</a>
+
       <div class='product_info'>
         <button id="add_cart" ng-click="product.getCartIndex();" ng-show='product.product.inventory > 0'>Add To Cart</button>
         <p>{{product.product.name}}</p>

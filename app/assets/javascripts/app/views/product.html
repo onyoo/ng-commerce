@@ -12,6 +12,7 @@
             accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
         Select File</button>
   <br><br>
+
   <review product='product'></review>
 
   <div ng-repeat='rating in product.ratings | ratingFilter'>
@@ -19,14 +20,8 @@
       <p>Rating: {{rating.score}}</p>
       <p>{{rating.body}}</p>
       <p>{{rating.created_at | date:short}}</p>
-      <p>How helpful is this rating: {{rating.comments | helpfulnessFilter}}</p>
+      <p>How helpful is this rating: {{rating.comments | helpfulnessFilter}} </p>
       <br>
-      <div ng-repeat='comment in rating.comments' class='rating_comment'>
-        <p>{{comment.body}}</p>
-        <p>Helpfulness: {{comment.score}}</p>
-        <p>{{comment.created_at | date:short}}</p>
-        <br><br>
-      </div>
       <review r='rating.id' product='product'></review>
     </div>
   </div>

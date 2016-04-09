@@ -15,7 +15,7 @@ function HelpfulnessFilter() {
     var average = points/votes;
 
     if (average >= 0) {
-      return Math.floor(average);
+      return Math.floor(average) + " | out of " + votes + " votes";
     }else{
       return undefined;
     };

@@ -1,8 +1,8 @@
-<button ng-click='leaveReview = true' ng-show='!leaveReview'>Leave A Review!</button>
+<button ng-click='leaveReview = true' ng-show='!leaveReview && !review.r'>Leave A Review!</button>
+<button ng-click='leaveReview = true' ng-show='!leaveReview && review.r'>Rate This Review</button>
 
 <form action="" ng-show='leaveReview' ng-submit='review.submitReview(review.product.product.id, body, rating); leaveReview = false; body = ""; rating=5 '>
-  <p>Review:</p>
-  <textarea class='review_textarea' ng-model='body'></textarea>
+  <textarea ng-show='!review.r' class='review_textarea' ng-model='body'></textarea>
   <p>Rating: {{rating}}</p>
   <input class='rating_slider' ng-model='rating' type='range' min='0' max='10' step='1' value='5' ng-model='rating' />
   <input type="submit" value='Submit'>
