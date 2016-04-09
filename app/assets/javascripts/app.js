@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ui.router', 'templates', 'ngCookies']) //'ngCookies' access coockies
+  .module('app', ['ui.router', 'templates', 'ngCookies', 'ngFileUpload'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401102641) do
+ActiveRecord::Schema.define(version: 20160409105057) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
@@ -61,8 +61,13 @@ ActiveRecord::Schema.define(version: 20160401102641) do
     t.string   "name"
     t.integer  "price"
     t.integer  "inventory"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "product_image_file_name"
+    t.string   "product_image_content_type"
+    t.integer  "product_image_file_size"
+    t.datetime "product_image_updated_at"
+    t.string   "image_url"
   end
 
   create_table "ratings", force: :cascade do |t|

@@ -1,4 +1,4 @@
-function ProductService($http) {
+function ProductService($http, Upload) {
   this.getProductsIndex = function() {
     return $http.get('/products');
   };
@@ -23,6 +23,14 @@ function ProductService($http) {
       'rating_id': rId
     };
     return $http.patch('/products/' + id, data);
+  };
+
+  this.uploadImage = function(image, invalid, id) {
+    return Upload.upload({
+            url: '/products/' + id,
+            method: 'PATCH',
+            data: { 'file': image }
+        });
   };
 
 };

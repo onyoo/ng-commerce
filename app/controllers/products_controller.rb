@@ -15,8 +15,15 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
-    product.ratings.create(body: params[:review], score: params[:rating], rating_id: params[:rating_id])
-    render json: product.ratings.last
+    if params[:file]
+      product.product_image = params[:file]
+      product.image_url = product.product_image.url
+      product.save
+      render json: {url: product.product_image.url}
+    else
+      product.ratings.create(body: params[:review], score: params[:rating], rating_id: params[:rating_id])
+      render json: product.ratings.last
+    end
   end
 
 end

@@ -2,6 +2,7 @@
 //= require angular
 //= require angular-ui-router
 //= require angular-cookies
+//= require ng-file-upload
 
 //= require angular-rails-templates
 
