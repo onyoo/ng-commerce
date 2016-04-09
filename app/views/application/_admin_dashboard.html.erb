@@ -1,0 +1,33 @@
+
+<div id='dashboard'>
+
+  Welcome Admin.
+
+  <table>
+    <%= form_for product do |f| %>
+    <tr>
+      <td><%= f.label :name%></td>
+      <td><%= f.text_field :name, placeholder: 'name' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :price%></td>
+      <td><%= f.number_field :price, placeholder: 'price' %></td>
+    </tr>
+      <td><%= f.label :inventory%></td>
+      <td><%= f.number_field :inventory, placeholder: 'inventory' %></td>
+    <tr>
+    <tr>
+      <td><%= f.label :product_image%></td>
+      <td><%= f.file_field :product_image %></td>
+    </tr>
+      <td>
+        <%= f.submit %>
+      </td>
+    <% end %>
+  </table>
+
+  <div id='delete_dropdown'>
+    Delete From Dropdown:
+  </div>
+
+</div>

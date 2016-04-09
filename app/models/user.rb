@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :carts
   has_many :products, through: :carts
+
+  enum role: [:admin, :user]
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :user
+  end
+
 end

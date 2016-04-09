@@ -9,7 +9,15 @@
 </head>
 <body ng-app='app'>
 
-<ui-view></ui-view>
+
+
+<div id='angular_view'>
+  <ui-view></ui-view>
+</div>
+
+<% if current_user_admin? %>
+  <%= render partial: 'admin_dashboard', locals: { product: @product }%>
+<% end%>
 
 </body>
 </html>

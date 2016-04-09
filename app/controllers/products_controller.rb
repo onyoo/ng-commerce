@@ -13,6 +13,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def create
+    product = Product.create(product_params)
+    product.image_url = product.product_image.url
+    redirect_to root_path
+  end
+
   def update
     product = Product.find(params[:id])
     if params[:file]
@@ -24,6 +30,12 @@ class ProductsController < ApplicationController
       product.ratings.create(body: params[:review], score: params[:rating], rating_id: params[:rating_id])
       render json: product.ratings.last
     end
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :inventory, :price, :product_image)
   end
 
 end

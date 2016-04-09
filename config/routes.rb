@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'application#angular'
 
-  resources :products, only: [:index, :show, :update]
+  resources :products, only: [:index, :show, :update, :create]
   resources :categories, only: [:index, :show]
   resources :ratings, only: [:show]
   resources :carts, only: [:create, :show, :update, :destroy]

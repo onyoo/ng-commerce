@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create(name: 'Test', email: 'tim@cambridge.ac.uk', password: 'greyhound')
+user = User.create(name: 'Test', email: 'tim@cambridge.ac.uk', password: 'greyhound', role: 0)
 
 dog_toy = Product.create(name: 'machanical rabbit', price: 1000, inventory: 49)
 dog_bone = Product.create(name: 'dog bone', price: 10, inventory: 50)
