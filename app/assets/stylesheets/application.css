@@ -114,10 +114,13 @@
 
 .product_index_image {
   margin: 1em;
-  /*position: absolute;*/
-  /*display: inline-block;*/
   height: 50px;
   left: 1em;
+}
+
+.product_image {
+  height: 150px;
+  
 }
 
 ul{

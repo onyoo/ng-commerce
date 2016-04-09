@@ -1,6 +1,6 @@
   <li>
     <div class="product_item" >
-      <img class='product_index_image' ng-src="{{product.product.image_url}}"/>
+      <img class='product_index_image' ng-src="{{product.product.image_url}}" alt="{{product.product.name}} picture"/>
       <div class='product_info'>
         <a class="product" ui-sref="home.product({id: product.product.id})">{{product.product.name}}</a>
         <button id="add_cart" ng-click="product.getCartIndex();" ng-show='product.product.inventory > 0'>Add To Cart</button>

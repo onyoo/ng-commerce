@@ -1,9 +1,9 @@
 <div class="productWrapper" ng-init='leaveReview = false'>
-  Name: {{product.product.name}}
-  <br>
-  Price: {{product.product.price}}
-  <br>
-  Inventory: {{product.product.inventory}}
+  <img ng-src="{{product.product.image_url}}" class='product_image' alt="{{product.product.name}} picture"/>
+
+  <h3>Name: {{product.product.name}}</h3>
+  <p>Price: {{product.product.price}}</p>
+  <p>Inventory: {{product.product.inventory}}</p>
   <br>
   Average User Rating: {{product.ratings | productRatingFilter}}
   <br>
@@ -11,10 +11,7 @@
   <button type="file" ngf-select="product.uploadImage($file, $invalidFiles, product.product.id)"
             accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
         Select File</button>
-  <br>
   <br><br>
-  Preview: <img ng-src="{{product.product.image_url}}"/>
-  <br>
   <review product='product'></review>
 
   <div ng-repeat='rating in product.ratings | ratingFilter'>
