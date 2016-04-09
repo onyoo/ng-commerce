@@ -1,11 +1,15 @@
   <li>
     <div class="product_item" >
-      <img class='product_index_image' ng-src="{{product.product.image_url}}" alt="{{product.product.name}} picture"/>
+      <a class="product" ui-sref="home.product({id: product.product.id})">
+        <img class='product_index_image' ng-src="{{product.product.image_url}}" alt="{{product.product.name}} picture"/>
+      </a>
+      <a class="product" ui-sref="home.admin({id: product.product.id})">Admin</a>
       <div class='product_info'>
-        <a class="product" ui-sref="home.product({id: product.product.id})">{{product.product.name}}</a>
         <button id="add_cart" ng-click="product.getCartIndex();" ng-show='product.product.inventory > 0'>Add To Cart</button>
-        <p>Price: {{ product.product.price | currency }} </p>
-        <p>Only: {{ product.product.inventory }} left! </p>
+        <p>{{product.product.name}}</p>
+        <p>{{ product.product.price | currency }} </p>
+        <p ng-if='product.product.inventory === 0'> Sold Out! </p>
+        <p ng-if='product.product.inventory !== 0'>Only {{ product.product.inventory }} left! </p>
       </div>
     </div>
   </li>
