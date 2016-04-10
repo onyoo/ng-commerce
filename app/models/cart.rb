@@ -5,15 +5,15 @@ class Cart < ActiveRecord::Base
   has_many :line_items
   has_many :products, through: :line_items
 
-  def self.update_cart(cart,product,quant)
-    if product.in?(cart.products)
-      deleted_count = cart.products.where(id: product.id).count
-      cart.products.destroy(product.id)
+  def update_cart(product,quant)
+    if product.in?(self.products)
+      deleted_count = self.products.where(id: product.id).count
+      self.products.destroy(product.id)
       product.inventory += deleted_count
     end
-    cart.products.push([product]*quant).flatten
+    self.products.push([product]*quant).flatten
     product.inventory -= quant
-    cart.save
+    self.save
     product.save
   end
 

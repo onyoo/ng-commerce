@@ -26,7 +26,7 @@ var Cart = {
       });
       ctrl.quantity = undefined;
     };
-
+    
 
     CartService
       .getContents(this.id)

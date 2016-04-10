@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     product = Product.create(product_params)
     product.save_url
     redirect_to root_path
+    # render json: product
   end
 
   def update

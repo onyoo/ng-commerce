@@ -8,6 +8,7 @@
       <p>{{ product.name }}</p>
       <p>{{ product.price | currency }}</p>
       <p> Order Quantity: {{ product.quantity }}</p>
+
       <button ng-click='showQuantForm = true' ng-show='!showQuantForm && cart.finished'>Change Quantity</button>
         <div ng-show='showQuantForm'>
           <form action="" name='quant_form' ng-submit='cart.changeQuant(cart.id, product.id);'>

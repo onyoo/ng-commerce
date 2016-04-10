@@ -4,7 +4,7 @@
   Welcome Admin.
 
   <table id='create_product'>
-    <%= form_for new_product do |f| %>
+    <%= form_for new_product, {remote: true} do |f| %>
     <tr>
       <td><%= f.label :name %></td>
       <td><%= f.text_field :name, placeholder: 'name', class: 'create_product_input' %></td>
@@ -43,10 +43,10 @@
   </div>
 
   <div id='delete_dropdown'>
-    Delete From Dropdown:
+    Delete Products:
 
     <table>
-      <% products.each do |product| %>
+      <% products.order('name asc').each do |product| %>
         <%= form_for(product, method: 'delete') do |f| %>
         <tr>
           <td><%= f.label product.name %></td>

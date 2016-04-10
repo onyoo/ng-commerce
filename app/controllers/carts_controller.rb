@@ -12,12 +12,11 @@ class CartsController < ApplicationController
     cart = Cart.find(params[:id])
     product = Product.find(params[:product_id])
     quant = params[:quantity]
-
-    if quant > 0 && (quant - cart.products.where(name: product.name).count) <= product.inventory
-      Cart.update_cart(cart,product,quant)
+    if quant >= 0 && (quant - cart.products.where(name: product.name).count) <= product.inventory
+      cart.update_cart(product,quant)
       render json: cart.products
     else
-      render nothing: true, status: 402;
+      render nothing: true, status: 402
     end
   end
 
