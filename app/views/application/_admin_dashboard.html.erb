@@ -3,7 +3,7 @@
 
   Welcome Admin.
 
-  <table>
+  <table id='create_product'>
     <%= form_for new_product do |f| %>
     <tr>
       <td><%= f.label :name%></td>
@@ -17,8 +17,12 @@
       <td><%= f.number_field :inventory, placeholder: 'inventory' %></td>
     <tr>
     <tr>
-      <td><%= f.label :product_image%></td>
+      <td><%= f.label 'Image'%></td>
       <td><%= f.file_field :product_image %></td>
+    </tr>
+    <tr>
+      <td><%= f.label 'Categories'%></td>
+      <td><%= f.collection_check_boxes(:category_ids, @categories, :id, :name) %></td>
     </tr>
       <td>
         <%= f.submit %>
@@ -26,20 +30,24 @@
     <% end %>
   </table>
 
+  <div id="create_category">
+    create a category!
+  </div>
+
   <div id='delete_dropdown'>
     Delete From Dropdown:
 
-  <table>
-    <% products.each do |product| %>
-      <%= form_for(product, method: 'delete') do |f| %>
-      <tr>
-        <td><%= f.label product.name %></td>
-        <td><%= f.submit 'Delete' %></td>
-      </tr>
-      <% end%>
-    <% end %>
-  </table>
+    <table>
+      <% products.each do |product| %>
+        <%= form_for(product, method: 'delete') do |f| %>
+        <tr>
+          <td><%= f.label product.name %></td>
+          <td><%= f.submit 'Delete' %></td>
+        </tr>
+        <% end%>
+      <% end %>
+    </table>
 
-</div>
+  </div>
 
 </div>

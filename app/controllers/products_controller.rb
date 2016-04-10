@@ -15,8 +15,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(product_params)
-    product.image_url = product.product_image.url
-    product.save
+    product.save_url
     redirect_to root_path
   end
 
@@ -24,9 +23,8 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     if params[:file]
       product.product_image = params[:file]
-      product.image_url = product.product_image.url
-      product.save
-      render json: {url: product.product_image.url}
+      product.save_url
+      render json: {url: product.image_url}
     else
       product.ratings.create(body: params[:review], score: params[:rating], rating_id: params[:rating_id])
       render json: product.ratings.last
@@ -41,7 +39,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :inventory, :price, :product_image)
+    params.require(:product).permit(:name, :inventory, :price, :product_image, category_ids: [])
   end
 
 end

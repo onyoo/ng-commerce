@@ -8,8 +8,11 @@ class ApplicationController < ActionController::Base
 
 
   def angular
-    @product = Product.new
-    @products = Product.all
+    if current_user.admin?
+      @product = Product.new
+      @products = Product.all
+      @categories = Category.all
+    end
     render 'layouts/application'
   end
 
