@@ -6,23 +6,25 @@
   <table id='create_product'>
     <%= form_for new_product do |f| %>
     <tr>
-      <td><%= f.label :name%></td>
-      <td><%= f.text_field :name, placeholder: 'name' %></td>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name, placeholder: 'name', class: 'create_product_input' %></td>
     </tr>
     <tr>
-      <td><%= f.label :price%></td>
-      <td><%= f.number_field :price, placeholder: 'price' %></td>
+      <td><%= f.label :price %></td>
+      <td><%= f.number_field :price, placeholder: 'price', class: 'create_product_input' %></td>
     </tr>
-      <td><%= f.label :inventory%></td>
-      <td><%= f.number_field :inventory, placeholder: 'inventory' %></td>
+      <td><%= f.label :inventory %></td>
+      <td><%= f.number_field :inventory, placeholder: 'inventory', class: 'create_product_input' %></td>
     <tr>
     <tr>
-      <td><%= f.label 'Image'%></td>
-      <td><%= f.file_field :product_image %></td>
+      <td><%= f.label 'Image' %></td>
+      <td><%= f.file_field :product_image, text: 'Product Image'%></td>
     </tr>
     <tr>
-      <td><%= f.label 'Categories'%></td>
-      <td><%= f.collection_check_boxes(:category_ids, @categories, :id, :name) %></td>
+      <td><%= f.label 'Categories', class: 'create_product_label' %></td>
+      <td>
+        <%= f.collection_select(:category_ids, @categories.order('name asc'), :id, :name, {}, {:multiple => true}) %>
+      </td>
     </tr>
       <td>
         <%= f.submit %>
@@ -31,7 +33,13 @@
   </table>
 
   <div id="create_category">
-    create a category!
+    Create a category:
+    <%= form_for @category do |category| %>
+      <%= category.label :name %>
+      <%= category.text_field :name, placeholder: 'cartegory name' %>
+      <br>
+      <%= category.submit %>
+    <% end %>
   </div>
 
   <div id='delete_dropdown'>

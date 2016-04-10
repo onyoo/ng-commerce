@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
       @product = Product.new
       @products = Product.all
       @categories = Category.all
+      @category = Category.new
     end
     render 'layouts/application'
   end
