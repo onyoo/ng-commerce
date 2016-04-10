@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :carts, only: [:create, :show, :update, :destroy]
   resources :users, only: [:show]
 
-
-  # post '/products/:id/delete' => 'products#destroy', as: 'delete_product'
   post '/login', to: 'sessions#create', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
