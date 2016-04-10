@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   def create
     product = Product.create(product_params)
     product.image_url = product.product_image.url
+    product.save
     redirect_to root_path
   end
 
@@ -30,6 +31,11 @@ class ProductsController < ApplicationController
       product.ratings.create(body: params[:review], score: params[:rating], rating_id: params[:rating_id])
       render json: product.ratings.last
     end
+  end
+
+  def destroy
+    Product.destroy(params[:id])
+    redirect_to root_path
   end
 
   private

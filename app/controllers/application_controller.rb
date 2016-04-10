@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   def angular
     @product = Product.new
+    @products = Product.all
     render 'layouts/application'
   end
 

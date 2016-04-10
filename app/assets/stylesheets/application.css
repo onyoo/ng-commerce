@@ -137,7 +137,9 @@
 #delete_dropdown {
   position: fixed;
   right: 0em;
-  bottom: 7em;
+  bottom: 0em;
+  height: 9em;
+  overflow-y: auto;
 }
 
 ul{

@@ -16,7 +16,7 @@
 </div>
 
 <% if current_user_admin? %>
-  <%= render partial: 'admin_dashboard', locals: { product: @product }%>
+  <%= render partial: 'admin_dashboard', locals: { new_product: @product, products: @products }%>
 <% end%>
 
 </body>
