@@ -34,7 +34,7 @@
 
   <div id="create_category">
     Create a category:
-    <%= form_for @category, {remote: true} do |category| %>
+    <%= form_for @category do |category| %>
       <%= category.label :name %>
       <%= category.text_field :name, placeholder: 'cartegory name' %>
       <br>
