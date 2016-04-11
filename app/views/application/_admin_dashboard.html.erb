@@ -4,7 +4,7 @@
   Welcome Admin.
 
   <table id='create_product'>
-    <%= form_for new_product, {remote: true} do |f| %>
+    <%= form_for new_product do |f| %>
     <tr>
       <td><%= f.label :name %></td>
       <td><%= f.text_field :name, placeholder: 'name', class: 'create_product_input' %></td>
@@ -34,7 +34,7 @@
 
   <div id="create_category">
     Create a category:
-    <%= form_for @category do |category| %>
+    <%= form_for @category, {remote: true} do |category| %>
       <%= category.label :name %>
       <%= category.text_field :name, placeholder: 'cartegory name' %>
       <br>

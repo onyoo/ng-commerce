@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
 
   def angular
-    if current_user.admin?
+    if session[:user_id] && current_user.admin?
       @product = Product.new
       @products = Product.all
       @categories = Category.all
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    User.find(session[:user_id])
+    User.find(session[:user_id]) if session[:user_id]
   end
 
   def user_not_authorized

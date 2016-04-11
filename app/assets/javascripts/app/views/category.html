@@ -15,9 +15,9 @@
       type="number"
       ng-model='max'>
   </p>
+  <button ng-click="sort = '-price'; reverse = !reverse">Reverse Price Order</button>
 </div>
 
-
-<ul ng-repeat='product in category.products | filter:search | priceFilter:min:max'>
+<ul ng-repeat='product in category.products | filter:search | priceFilter:min:max | orderBy:sort:reverse'>
   <product-item product='product'></product-item>
 </ul>
